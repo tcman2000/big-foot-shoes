@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ViewOrder = () => {
+const ViewConfirmation = () => {
     return (
         <div></div>
     );
 };
 
-export default ViewOrder;
+export default ViewConfirmation;
