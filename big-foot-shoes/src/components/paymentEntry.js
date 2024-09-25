@@ -19,20 +19,30 @@ const PaymentEntry = () => {
                 <label>Credit Card Number </label>
                 <input
                     type='text'
+                    placeholder='xxxx xxxx xxxx xxxx'
+                    minLength={16}
+                    maxLength={16}
                     required
                     onChange={(e) => {shoppingCart.credit_card_number = e.target.value;}}
                 /><br/>
                 <label>Expiration Date </label>
                 <input
                     type='text'
+                    placeholder='xx/xx'
+                    minLength={4}
+                    maxLength={4}
                     required
                     onChange={(e) => {shoppingCart.expir_date = e.target.value;}}
                 /><br/>
                 <label>CVV Code </label>
                 <input
                     type='text'
+                    maxLength={3}
+                    minLength={3}
+                    placeholder='xxx'
                     required
                     onChange={(e) => {shoppingCart.cvv_code = e.target.value;}}
+                    
                 /><br/>
                 <label>Card Holder Name </label>
                 <input

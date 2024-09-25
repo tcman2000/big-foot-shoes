@@ -18,7 +18,7 @@ const Purchase = () => {
     const handleSubmit = (e) => {
         navigate('/purchase/paymentEntry');
     }
-
+    
     return (
         <div>
             <h1>Big Foot's Shoe Emporium</h1>
