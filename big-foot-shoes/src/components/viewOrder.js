@@ -10,6 +10,7 @@ import "../styles/purchase.css";
 import { ShoppingCartContext } from './shoppingCartContext';
 
 
+
 const ViewOrder = () => {
     const {shoppingCart, setShoppingCart} = useContext(ShoppingCartContext);  
     const [total, setTotal] = useState(0); 
