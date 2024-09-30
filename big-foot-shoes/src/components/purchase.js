@@ -33,6 +33,7 @@ const Purchase = () => {
                             <input
                                 type='number'
                                 min="0"
+                                defaultValue={shoe.qty}
                                 onChange={(e) => {shoe.qty = e.target.value;}}
                             />
                             <br/><br/>

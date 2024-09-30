@@ -15,7 +15,7 @@ function App() {
 
   const [shoppingCart, setShoppingCart] = useState({
     buyQuantity: [0,0,0,0,0], cart: shoes, credit_card_number: '', expir_date: '', cvv_code: '',
-    card_holder_name: '', address_1: '', address_2: '', city: '', state: '', zip: ''
+    card_holder_name: '', address_1: '', address_2: '', city: '', state: '', zip: '', full_name: ''
   });
 
   return (
