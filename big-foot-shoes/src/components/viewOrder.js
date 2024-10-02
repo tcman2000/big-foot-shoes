@@ -6,16 +6,17 @@ import { ShoppingCartContext } from './shoppingCartContext';
 import { renderImage } from './shoes';
 
 
+function getTotal(cart){
+    return cart.reduce((acc, val)=>{
+        return acc + (val.qty * val.price)
+    }, 0);
+}
 const ViewOrder = () => {
     const {shoppingCart, setShoppingCart} = useContext(ShoppingCartContext);  
     const [total, setTotal] = useState(0); 
-    const itemPrice = [1,5,25,500,50];
 
-    function getTotal(){
-        return shoppingCart.cart.reduce((acc, val)=>{
-            return acc + (val.qty * val.price)
-        }, 0);
-    }
+
+ 
     const navigate = useNavigate();
 
     const handleSubmit = (e) => {
@@ -47,7 +48,7 @@ const ViewOrder = () => {
                                 min="0"
                                 onChange={(e) => {
                                     shoe.qty = e.target.value;
-                                    setTotal(getTotal());
+                                    setTotal(getTotal(shoppingCart.cart));
                                 }}
                             />
                             <br/><br/>
@@ -58,7 +59,7 @@ const ViewOrder = () => {
                 <br/><br/>
                 <h3>Total</h3>
 
-                <text>${getTotal()}</text>
+                <text>${getTotal(shoppingCart.cart)}</text>
                 <br/><br/>
                 <button className='button'>Confirm Order</button>
                 <button type='button' className='button' onClick={handleReturn}>Return back</button>
@@ -68,3 +69,4 @@ const ViewOrder = () => {
 };
 
 export default ViewOrder;
+export {getTotal};
