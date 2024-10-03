@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createContext, useContext, useState } from 'react';
-import { ShoppingCartContext } from './shoppingCartContext';
+import { ShoppingCartContext } from '../shoppingCartContext';
 
 const Header = () => {
 
@@ -10,8 +10,8 @@ const Header = () => {
     const navigate = useNavigate();
     
     return (
-        <div>
-
+        <div id='header'>
+            <h1>Big Foot Shoes</h1>
         </div>
     );
 };
