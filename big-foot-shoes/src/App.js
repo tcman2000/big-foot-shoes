@@ -30,6 +30,10 @@ function App() {
             <Route path='/purchase/shippingEntry' element={<ShippingEntry/>}/>
             <Route path='/purchase/viewOrder' element={<ViewOrder/>}/>
             <Route path='/purchase/viewConfirmation' element={<ViewConfirmation/>}/>
+            <Route path='/home' element={<Home/>}/>
+            <Route path='/about' element={<About/>}/>
+            <Route path='/contact' element={<Contact/>}/>
+            <Route path='/product' element={<Product/>}/>
           </Routes>
         </div>
         </ShoppingCartContext.Provider>
