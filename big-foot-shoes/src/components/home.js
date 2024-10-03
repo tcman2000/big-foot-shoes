@@ -1,7 +1,8 @@
 import React from 'react';
-import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { createContext, useContext, useState } from 'react';
+import { ShoppingCartContext } from './shoppingCartContext';
+import Footer from './partials/footer';
 const Home = () => {
 
     const {shoppingCart, setShoppingCart} = useContext(ShoppingCartContext);
@@ -10,7 +11,8 @@ const Home = () => {
     
     return (
         <div>
-
+            Home
+            <Footer/>
         </div>
     );
 };

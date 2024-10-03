@@ -9,7 +9,10 @@ import {BrowserRouter as Router, Route, Routes, Navigate} from "react-router-dom
 import { createContext, useContext, useState } from 'react';
 import { ShoppingCartContext } from './components/shoppingCartContext';
 import { shoes } from './components/shoes';
-
+import Home from './components/home';
+import About from './components/about';
+import Contact from './components/contact';
+import Product from './components/product';
 
 function App() {
 
