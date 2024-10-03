@@ -20,36 +20,49 @@ const ShippingEntry = () => {
                 <label>Full Name </label>
                 <input
                     type='text'
+                    defaultValue={shoppingCart.full_name}
                     required
                     onChange={(e) => {shoppingCart.full_name = e.target.value;}}
                 /><br/>
                 <label>Phone Number </label>
                 <input
                     type='text'
+                    defaultValue={shoppingCart.phone_number}
                     required
                     onChange={(e) => {shoppingCart.phone_number = e.target.value;}}
                 /><br/>
-                <label>Address </label>
+                <label>Address 1 </label>
                 <input
                     type='text'
+                    defaultValue={shoppingCart.address_1}
                     required
-                    onChange={(e) => {shoppingCart.address = e.target.value;}}
+                    onChange={(e) => {shoppingCart.address_1 = e.target.value;}}
+                /><br/>
+                <label>Address 2 </label>
+                <input
+                    type='text'
+                    defaultValue={shoppingCart.address_1}
+                    required
+                    onChange={(e) => {shoppingCart.address_2 = e.target.value;}}
                 /><br/>
                 <label>City </label>
                 <input
                     type='text'
+                    defaultValue={shoppingCart.city}
                     required
                     onChange={(e) => {shoppingCart.city = e.target.value;}}
                 /><br/>
                 <label>State </label>
                 <input
                     type='text'
+                    defaultValue={shoppingCart.state}
                     required
                     onChange={(e) => {shoppingCart.state = e.target.value;}}
                 /><br/>
                 <label>ZIP Code </label>
                 <input
                     type='text'
+                    defaultValue={shoppingCart.zip_code}
                     required
                     onChange={(e) => {shoppingCart.zip_code = e.target.value;}}
                 /><br/>

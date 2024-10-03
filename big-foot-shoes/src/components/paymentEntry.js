@@ -10,6 +10,8 @@ const PaymentEntry = () => {
     const {shoppingCart, setShoppingCart} = useContext(ShoppingCartContext);
     
     const handleSubmit = (e) => {
+        console.log(shoppingCart.card_holder_name);
+        console.log(shoppingCart.credit_card_number);
         navigate('/purchase/shippingEntry');
     }
 
@@ -22,6 +24,7 @@ const PaymentEntry = () => {
                     placeholder='xxxx xxxx xxxx xxxx'
                     minLength={16}
                     maxLength={16}
+                    defaultValue={shoppingCart.credit_card_number}
                     required
                     onChange={(e) => {shoppingCart.credit_card_number = e.target.value;}}
                 /><br/>
@@ -31,6 +34,7 @@ const PaymentEntry = () => {
                     placeholder='xx/xx'
                     minLength={4}
                     maxLength={4}
+                    defaultValue={shoppingCart.expir_date}
                     required
                     onChange={(e) => {shoppingCart.expir_date = e.target.value;}}
                 /><br/>
@@ -40,6 +44,7 @@ const PaymentEntry = () => {
                     maxLength={3}
                     minLength={3}
                     placeholder='xxx'
+                    defaultValue={shoppingCart.cvv_code}
                     required
                     onChange={(e) => {shoppingCart.cvv_code = e.target.value;}}
                     
@@ -47,6 +52,7 @@ const PaymentEntry = () => {
                 <label>Card Holder Name </label>
                 <input
                     type='text'
+                    defaultValue={shoppingCart.card_holder_name}
                     required
                     onChange={(e) => {shoppingCart.card_holder_name = e.target.value;}}
                 /><br/>

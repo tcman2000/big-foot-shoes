@@ -8,6 +8,7 @@ import nike from '../assets/nike_air_max_270.png';
 import vans from '../assets/vans_old_skool.png';
 import "../styles/purchase.css";
 import { ShoppingCartContext } from './shoppingCartContext';
+import { shoes, renderImage } from './shoes';
 
 const Purchase = () => {
 
@@ -23,46 +24,24 @@ const Purchase = () => {
         <div>
             <h1>Big Foot's Shoe Emporium</h1>
             <form onSubmit={handleSubmit}>
-                <label>Nike Air Max 270 $1 </label><br/>
-                <img className='item-photo' src={nike} alt="Nike Air Max 270"/><br/>
-                <input
-                    type='number'
-                    required
-                    onChange={(e) => {shoppingCart.buyQuantity[0] = e.target.value;}}
-                />
-                <br/><br/>
-                <label>Adidas Ultraboost 22 $5 </label><br/>
-                <img className='item-photo' src={adidas} alt="Adidas UltraBoost 22"/><br/>
-                <input
-                    type='number'
-                    required
-                    onChange={(e) => {shoppingCart.buyQuantity[1] = e.target.value;}}
-                />
-                <br/><br/>
-                <label>Converse Chuck Taylor All-Star $25 </label><br/>
-                <img className='item-photo' src={converse} alt="Converse Chuck Taylor All-Star"/><br/>
-                <input
-                    type='number'
-                    required
-                    onChange={(e) => {shoppingCart.buyQuantity[2] = e.target.value;}}
-                />
-                <br/><br/>
-                <label>Dr. Martens 1460 Boots $500 </label><br/>
-                <img className='item-photo' src={martens} alt="Dr. Martens 1460 Boots"/><br/>
-                <input
-                    type='number'
-                    required
-                    onChange={(e) => {shoppingCart.buyQuantity[3] = e.target.value;}}
-                />
-                <br/><br/>
-                <label>Vans Old Skool $50 </label><br/>
-                <img className='item-photo' src={vans} alt="Vans Old Skool"/><br/>
-                <input
-                    type='number'
-                    required
-                    onChange={(e) => {shoppingCart.buyQuantity[4] = e.target.value;}}
-                />
-                <br/><br/>
+                {
+                    shoppingCart.cart.map((shoe, idx) =>{
+                        return(
+                            <div key={shoe.id}>
+                            <label>{`${shoe.name} $${shoe.price}`}</label><br/>
+                            <img className='item-photo' src={renderImage(shoe.name.toLowerCase())} alt={shoe.name}/><br/>
+                            <input
+                                type='number'
+                                min="0"
+                                defaultValue={shoe.qty}
+                                onChange={(e) => {shoe.qty = e.target.value;}}
+                            />
+                            <br/><br/>
+                            </div>
+                        )
+                    })
+                }
+                
                 <button className='button'>Pay</button>
             </form>
         </div>

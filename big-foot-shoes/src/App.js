@@ -8,13 +8,14 @@ import ViewConfirmation from './components/viewConfirmation';
 import {BrowserRouter as Router, Route, Routes, Navigate} from "react-router-dom";
 import { createContext, useContext, useState } from 'react';
 import { ShoppingCartContext } from './components/shoppingCartContext';
+import { shoes } from './components/shoes';
 
 
 function App() {
 
   const [shoppingCart, setShoppingCart] = useState({
-    buyQuantity: [0,0,0,0,0], credit_card_number: '', expir_date: '', cvv_code: '',
-    card_holder_name: '', address_1: '', address_2: '', city: '', state: '', zip: ''
+    buyQuantity: [0,0,0,0,0], cart: shoes, credit_card_number: '', expir_date: '', cvv_code: '',
+    card_holder_name: '', address_1: '', address_2: '', city: '', state: '', zip: '', full_name: ''
   });
 
   return (
