@@ -16,7 +16,7 @@ const About = () => {
     
     return (
         <div className='d-flex text-center text-bg-dark h-100'>
-            <div id='about-us' className='cover-container d-flex w-100 h-100 mx-auto flex-column'>
+            <div id='about-us' className='cover-container overflow-auto d-flex w-100 h-100 mx-auto flex-column'>
                 <Header/>
                     <div className='flex-grow-1 w-50 m-auto'>
                         <h1>About Us</h1>
@@ -33,7 +33,7 @@ const About = () => {
                                 <li className='list-group-item'>Keep to a digital only platform to lower costs.</li>
                                 <li className='list-group-item'>Offer state of the art foot scanning technology to ensure the best fit!</li>
                                 <li className='list-group-item'>Negotiate with the cheapest producers to offer affordable products</li>
-                            </ul>
+                        </ul>
                         <h3>Meet our Executives!</h3>
                         <div>
                             <h5>Titan Chen</h5>
@@ -43,7 +43,22 @@ const About = () => {
                                 He was inspired by the plights of big footed people to start this company.
                             </p>
                         </div>
-
+                        <div>
+                            <h5>Titan Chen</h5>
+                            <img src={tc_pic}></img>
+                            <p>
+                                Titan Chen is Co-Ceo of Big Foot Shoes. He is currently a grad student and maintains a full-time job as a software engineer.
+                                He was inspired by the plights of big footed people to start this company.
+                            </p>
+                        </div>
+                        <div>
+                            <h5>Titan Chen</h5>
+                            <img src={tc_pic}></img>
+                            <p>
+                                Titan Chen is Co-Ceo of Big Foot Shoes. He is currently a grad student and maintains a full-time job as a software engineer.
+                                He was inspired by the plights of big footed people to start this company.
+                            </p>
+                        </div>
                     </div>
                     
                 <Footer/>
