@@ -1,0 +1,20 @@
+.form-control-dark {
+    border-color: var(--bs-gray);
+  }
+  .form-control-dark:focus {
+    border-color: #fff;
+    box-shadow: 0 0 0 .25rem rgba(28, 52, 48, 0.25);
+  }
+  
+  .text-small {
+    font-size: 85%;
+  }
+  
+  .dropdown-toggle:not(:focus) {
+    outline: 0;
+  }
+
+footer {
+    background-color: rgba(192, 214, 223, 1);
+    box-shadow: 0 0 0 .25rem rgba(79, 109, 122, 1);
+}

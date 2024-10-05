@@ -9,7 +9,11 @@ import {BrowserRouter as Router, Route, Routes, Navigate} from "react-router-dom
 import { createContext, useContext, useState } from 'react';
 import { ShoppingCartContext } from './components/shoppingCartContext';
 import { shoes } from './components/shoes';
-
+import Home from './components/home';
+import About from './components/about';
+import Contact from './components/contact';
+import Product from './components/product';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
 
@@ -19,10 +23,10 @@ function App() {
   });
 
   return (
-    <div className="App">
+    <div className="App h-100">
       <Router>
         <ShoppingCartContext.Provider value = {{shoppingCart, setShoppingCart}}>
-        <div className='content'>
+        <div className='content h-100'>
           <Routes>
             <Route path='/purchase' element={<Purchase/>}/>
             <Route path='/' element={<Navigate replace to='/purchase'/>}/>
@@ -30,6 +34,10 @@ function App() {
             <Route path='/purchase/shippingEntry' element={<ShippingEntry/>}/>
             <Route path='/purchase/viewOrder' element={<ViewOrder/>}/>
             <Route path='/purchase/viewConfirmation' element={<ViewConfirmation/>}/>
+            <Route path='/home' element={<Home/>}/>
+            <Route path='/about' element={<About/>}/>
+            <Route path='/contact' element={<Contact/>}/>
+            <Route path='/product' element={<Product/>}/>
           </Routes>
         </div>
         </ShoppingCartContext.Provider>
