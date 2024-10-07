@@ -18,13 +18,13 @@ const Product = (props) => {
         <div id='product'>
             <Header/>
         <h1>Big Foot's Shoe Emporium Products</h1>
+        <hr/>
                 {
                     shoppingCart.cart.map((shoe, idx) =>{
                         return(
                             <div key={shoe.id}>
-                            
                             <div className='item'>
-                            <img className='product-image' src={renderImage(shoe.name.toLowerCase())} alt={shoe.name}/><br/>
+                            <img className='product-image border rounded' src={renderImage(shoe.name.toLowerCase())} alt={shoe.name}/><br/>
                             <div>
                             <h2 className='product-description'>{`${shoe.name}`}</h2><br/>
                             <h3 className='product-description'>{`$${shoe.price}`}</h3><br/>

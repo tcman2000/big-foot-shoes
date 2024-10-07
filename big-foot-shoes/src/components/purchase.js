@@ -9,6 +9,8 @@ import vans from '../assets/vans_old_skool.png';
 import "../styles/purchase.css";
 import { ShoppingCartContext } from './shoppingCartContext';
 import { shoes, renderImage } from './shoes';
+import Header from './partials/header';
+import Footer from './partials/footer';
 
 const Purchase = () => {
 
@@ -21,7 +23,8 @@ const Purchase = () => {
     }
     
     return (
-        <div>
+        <div id = 'purchase'className='cover-container d-flex mx-auto flex-column'>
+            <Header/>
             <h1>Big Foot's Shoe Emporium</h1>
             <form onSubmit={handleSubmit}>
                 {
@@ -44,6 +47,7 @@ const Purchase = () => {
                 
                 <button className='button'>Pay</button>
             </form>
+            <Footer/>
         </div>
     );
 };
