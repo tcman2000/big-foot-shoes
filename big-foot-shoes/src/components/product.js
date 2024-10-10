@@ -23,21 +23,25 @@ const Product = (props) => {
                     shoppingCart.cart.map((shoe, idx) =>{
                         return(
                             <div key={shoe.id}>
-                            <div className='item'>
-                            <img className='product-image border rounded' src={renderImage(shoe.name.toLowerCase())} alt={shoe.name}/><br/>
-                            <div>
-                            <h2 className='product-description'>{`${shoe.name}`}</h2><br/>
-                            <h3 className='product-description'>{`$${shoe.price}`}</h3><br/>
-                            <p className='product-description'>{shoe.description}</p>
-                            </div>
-                            </div>
-                            <hr></hr>
+                                <div className='item'>
+                                    <img className='product-image border rounded' src={renderImage(shoe.name.toLowerCase())} alt={shoe.name}/><br/>
+                                    <div className = 'product-description'>
+                                        <h2>{`${shoe.name}`}</h2><br/>
+                                        <h3>{`$${shoe.price}`}</h3><br/>
+                                        <p>{shoe.description}</p>
+                                        <form onSubmit={handleSubmit}> 
+                                            <br></br>
+                                            <button className='button' class="btn btn-primary">Buy Now!</button>
+                                        </form>
+                                    </div>
+                                </div>
+                                <hr></hr>
                             </div>
                         )
                     })
                 }
             <form onSubmit={handleSubmit}> 
-                <button className='button' class="btn btn-primary">Start Shopping!</button>
+                <button className="btn btn-primary btn-lg">Start Shopping!</button>
             </form>
             <Footer/>
         </div>

@@ -45,7 +45,7 @@ const Purchase = () => {
                     })
                 }
                 
-                <button className='button'>Pay</button>
+                <button className='btn btn-primary'>Pay</button>
             </form>
             <Footer/>
         </div>

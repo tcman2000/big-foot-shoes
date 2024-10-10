@@ -30,7 +30,7 @@ const ViewOrder = () => {
 
     
     return (
-        <div id='purchase' className='cover-container d-flex w-100 h-100 mx-auto flex-column'>
+        <div id='purchase' className='cover-container overflow-auto d-flex w-100 h-100 mx-auto flex-column'>
             <Header/>
             <h2>Please confirm the contents of your order</h2>
             <form onSubmit={handleSubmit}>

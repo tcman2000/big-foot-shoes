@@ -11,7 +11,7 @@ const ViewConfirmation = () => {
     const {shoppingCart, setShoppingCart} = useContext(ShoppingCartContext); 
 
     return(
-        <div id='confirmation' className='cover-container d-flex h-100 mx-auto flex-column'>
+        <div id='confirmation' className='cover-container overflow-auto d-flex h-100 mx-auto flex-column'>
         <Header/>
         <h1>Order Confirmation</h1>
         <p>{"Your confirmation number is: " + Math.floor(Math.random() * 1000)} </p>

@@ -76,10 +76,9 @@ const ShippingEntry = () => {
                         onChange={(e) => {shoppingCart.zip_code = e.target.value;}}
                     /><br/>
                     <div align='center'>
-                        <button className='btn btn-primary mb-1'>Submit</button>
+                        <button className='btn btn-primary mb-3'>Submit</button>
                     </div>
                 </form>
-                <br/>
             </div>  
             
             <Footer/>
