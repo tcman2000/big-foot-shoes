@@ -3,11 +3,16 @@ import { useState, useContext } from 'react';
 import { ShoppingCartContext } from './shoppingCartContext';
 import { renderImage } from './shoes';
 import {getTotal} from './viewOrder';
+import Header from './partials/header';
+import Footer from './partials/footer';
+import "../styles/confirmation.css";
 
 const ViewConfirmation = () => {
     const {shoppingCart, setShoppingCart} = useContext(ShoppingCartContext); 
 
-    return(<div>
+    return(
+        <div id='confirmation' className='cover-container overflow-auto d-flex h-100 mx-auto flex-column'>
+        <Header/>
         <h1>Order Confirmation</h1>
         <p>{"Your confirmation number is: " + Math.floor(Math.random() * 1000)} </p>
         {
@@ -26,6 +31,7 @@ const ViewConfirmation = () => {
         }
         <h3>Total</h3>
         <text>${getTotal(shoppingCart.cart)}</text>
+        <Footer/>
     </div>);
     
 };

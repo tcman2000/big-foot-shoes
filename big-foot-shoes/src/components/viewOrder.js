@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import "../styles/purchase.css";
 import { ShoppingCartContext } from './shoppingCartContext';
 import { renderImage } from './shoes';
-
+import Header from './partials/header';
+import Footer from './partials/footer';
 
 function getTotal(cart){
     return cart.reduce((acc, val)=>{
@@ -29,8 +30,8 @@ const ViewOrder = () => {
 
     
     return (
-        <div>
-            <h1>Big Foot's Shoe Emporium</h1>
+        <div id='purchase' className='cover-container overflow-auto d-flex w-100 h-100 mx-auto flex-column'>
+            <Header/>
             <h2>Please confirm the contents of your order</h2>
             <form onSubmit={handleSubmit}>
                 {
@@ -61,9 +62,10 @@ const ViewOrder = () => {
 
                 <text>${getTotal(shoppingCart.cart)}</text>
                 <br/><br/>
-                <button className='button'>Confirm Order</button>
-                <button type='button' className='button' onClick={handleReturn}>Return back</button>
+                <button className='btn btn-primary mx-3'>Confirm Order</button>
+                <button type='button' className='btn btn-primary' onClick={handleReturn}>Return back</button>
             </form>
+            <Footer/>
         </div>
     );
 };

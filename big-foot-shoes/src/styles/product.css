@@ -1,0 +1,22 @@
+#product {
+    background-color: rgba(79, 109, 122, 1);
+    color:white;
+}
+.product-image {
+    width: 45%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-left: 5%;
+    margin-right:5%;
+    display:inline-block;
+    flex-shrink: 0;
+}
+
+.product-description{
+    margin-right:5%;
+}
+.item{
+    display:flex;
+    align-items:center;
+    height:100vh;
+}

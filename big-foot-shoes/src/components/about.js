@@ -7,6 +7,7 @@ import Footer from './partials/footer';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/about.css';
 import tc_pic from '../assets/tc_pic.png';
+import Brian_Profile from '../assets/Brian_Profile.jpg';
 
 const About = () => {
 
@@ -52,11 +53,11 @@ const About = () => {
                             </p>
                         </div>
                         <div>
-                            <h5>Titan Chen</h5>
-                            <img src={tc_pic}></img>
+                            <h5>Brian Dong</h5>
+                            <img src={Brian_Profile}></img>
                             <p>
-                                Titan Chen is Co-Ceo of Big Foot Shoes. He is currently a grad student and maintains a full-time job as a software engineer.
-                                He was inspired by the plights of big footed people to start this company.
+                                Brian Dong is Co-Ceo of Big Foot Shoes. He is currently an undergraduate student as a computer science major.
+                                He suffers from wide feet and felt compelled to bring more options to those like him.
                             </p>
                         </div>
                     </div>

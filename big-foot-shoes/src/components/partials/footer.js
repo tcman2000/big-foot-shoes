@@ -16,6 +16,7 @@ const Footer = () => {
             <footer className='py-3 mt-4'>
                 <ul class='nav justify-content-center border-bottom pb-3 mb-3'>
                     <li class='nav-item'><Link className='nav-link px-2 text-body-secondary' to="/home">Home</Link></li>
+                    <li class='nav-item'><Link className='nav-link px-2 text-body-secondary' to="/product">Product</Link></li>
                     <li class='nav-item'><Link className='nav-link px-2 text-body-secondary' to="/about">About</Link></li>
                     <li class='nav-item'><Link className='nav-link px-2 text-body-secondary' to="/contact">Contact Us</Link></li>
                 </ul>
