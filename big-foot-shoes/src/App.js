@@ -29,7 +29,7 @@ function App() {
         <div className='content h-100'>
           <Routes>
             <Route path='/purchase' element={<Purchase/>}/>
-            <Route path='/' element={<Navigate replace to='/purchase'/>}/>
+            <Route path='/' element={<Navigate replace to='/home'/>}/>
             <Route path='/purchase/paymentEntry' element={<PaymentEntry/>}/>
             <Route path='/purchase/shippingEntry' element={<ShippingEntry/>}/>
             <Route path='/purchase/viewOrder' element={<ViewOrder/>}/>
