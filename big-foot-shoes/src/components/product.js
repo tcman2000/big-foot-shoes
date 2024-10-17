@@ -2,13 +2,16 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createContext, useContext, useState } from 'react';
 import { ShoppingCartContext } from './shoppingCartContext';
-import { shoes, renderImage } from './shoes';
+import { shoes, renderImage, getInventory, convertToArray } from './shoes';
 import "../styles/product.css";
 import Header from './partials/header';
 import Footer from './partials/footer';
 const Product = (props) => {
 
     const {shoppingCart, setShoppingCart} = useContext(ShoppingCartContext);
+
+    // const inv = getInventory()
+    //             .then(prod => convertToArray(prod));
 
     const navigate = useNavigate();
     const handleSubmit = (e) => {

@@ -30,4 +30,18 @@ const shoes = [
     {id:4, ...shoeFactory("Vans Old Skool", 50, "Crafted with a durable canvas and suede upper, these kicks are perfect for skateboarding, cruising, or simply hanging out with friends. The padded collar offers ultimate comfort while you conquer your day, and the rubber waffle outsole provides grip that’s as solid as your dance moves at the next party.")}
 ];
 
-export { shoes, renderImage };
+async function getInventory(){
+    const resp = await fetch('https://xh6kpco151.execute-api.us-east-1.amazonaws.com/dev//inventory-management/inventory');
+    const json = await resp.json();
+    return json;
+}
+
+function convertToArray(obj){
+    const res = []
+    for(const keey in obj){
+        res.append(obj[keey])
+    }
+    return res;
+}
+
+export { shoes, renderImage, getInventory, convertToArray };
