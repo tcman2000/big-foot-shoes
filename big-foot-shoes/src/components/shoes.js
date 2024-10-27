@@ -39,7 +39,7 @@ async function getInventory(){
 function convertToArray(obj){
     const res = []
     for(const keey in obj){
-        res.append(obj[keey])
+        res.push({qty:0, ...obj[keey]})
     }
     return res;
 }
