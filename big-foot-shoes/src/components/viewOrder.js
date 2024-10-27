@@ -3,6 +3,8 @@ import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "../styles/purchase.css";
 import { ShoppingCartContext } from './shoppingCartContext';
+import { WarningContext } from './warningContext';
+import { OrderContext } from './orderContext';
 import { renderImage } from './shoes';
 import Header from './partials/header';
 import Footer from './partials/footer';
@@ -13,15 +15,45 @@ function getTotal(cart){
     }, 0);
 }
 const ViewOrder = () => {
-    const {shoppingCart, setShoppingCart} = useContext(ShoppingCartContext);  
+    const {shoppingCart, setShoppingCart} = useContext(ShoppingCartContext); 
+    const {order, setOrder} = useContext(OrderContext);
+    const {warning, setWarning} = useContext(WarningContext);
+
     const [total, setTotal] = useState(0); 
+    
 
 
  
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
-        navigate('/purchase/viewConfirmation');
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const req = await fetch('https://m252cwc0oj.execute-api.us-east-2.amazonaws.com/dev/order-processing/order',
+            {
+                method: 'POST',
+                headers:{
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(shoppingCart)
+            }
+        )
+        const resp = await req.json();
+        console.log(resp);
+        if(resp.statusCode === 200){
+            setOrder(resp.orderNumber);
+            navigate('/purchase/viewConfirmation');
+        } else{
+            shoppingCart.cart = resp.cart;
+            setWarning(
+            <>
+            {
+            resp.errors.reduce((acc, val) => {
+                    return [ acc, <br />, val ];
+                })
+            }
+            </>)
+            navigate('/purchase')
+        }
     }
 
     const handleReturn = (e) => {
@@ -39,7 +71,7 @@ const ViewOrder = () => {
                         return shoe.qty > 0
                     }).map(shoe => {
                         return(
-                            <div key={shoe.id}>
+                            <div key={shoe.ident}>
                             <label>{`${shoe.name} $${shoe.price}`}</label><br/>
                             <img className='item-photo' src={renderImage(shoe.name.toLowerCase())} alt={shoe.name}/><br/>
                             <input
