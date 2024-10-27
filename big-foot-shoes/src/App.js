@@ -6,27 +6,44 @@ import ShippingEntry from './components/shippingEntry';
 import ViewOrder from './components/viewOrder';
 import ViewConfirmation from './components/viewConfirmation';
 import {BrowserRouter as Router, Route, Routes, Navigate} from "react-router-dom";
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 import { ShoppingCartContext } from './components/shoppingCartContext';
-import { shoes } from './components/shoes';
+import { OrderContext } from './components/orderContext';
+import { WarningContext } from './components/warningContext';
+import { shoes, getInventory, convertToArray } from './components/shoes';
 import Home from './components/home';
 import About from './components/about';
 import Contact from './components/contact';
 import Product from './components/product';
-import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
 
   const [shoppingCart, setShoppingCart] = useState({
-    buyQuantity: [0,0,0,0,0], cart: shoes, credit_card_number: '', expir_date: '', cvv_code: '',
+    buyQuantity: [0,0,0,0,0], cart: [], credit_card_number: '', expir_date: '', cvv_code: '',
     card_holder_name: '', address_1: '', address_2: '', city: '', state: '', zip: '', full_name: ''
   });
 
+  const [order, setOrder] = useState(0);
+  const [warning, setWarning] = useState("");
+
+    useEffect(() => {
+        (async function() {
+            const inv = await getInventory();
+            const products = convertToArray(inv);
+            setShoppingCart({
+              buyQuantity: [0,0,0,0,0], cart: products, credit_card_number: '', expir_date: '', cvv_code: '',
+    card_holder_name: '', address_1: '', address_2: '', city: '', state: '', zip: '', full_name: ''
+            })
+        })();
+    },[setShoppingCart]);
+
   return (
-    <div className="App h-100">
+    <div className="App">
       <Router>
         <ShoppingCartContext.Provider value = {{shoppingCart, setShoppingCart}}>
-        <div className='content h-100'>
+        <OrderContext.Provider value = {{order, setOrder}}>
+        <WarningContext.Provider value = {{warning, setWarning}}>
+        <div className='content'>
           <Routes>
             <Route path='/purchase' element={<Purchase/>}/>
             <Route path='/' element={<Navigate replace to='/home'/>}/>
@@ -40,6 +57,8 @@ function App() {
             <Route path='/product' element={<Product/>}/>
           </Routes>
         </div>
+        </WarningContext.Provider>
+        </OrderContext.Provider>
         </ShoppingCartContext.Provider>
       </Router>
     </div>
