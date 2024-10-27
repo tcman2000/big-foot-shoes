@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useContext } from 'react';
 import { ShoppingCartContext } from './shoppingCartContext';
+import { OrderContext } from './orderContext';
 import { renderImage } from './shoes';
 import {getTotal} from './viewOrder';
 import Header from './partials/header';
@@ -9,12 +10,13 @@ import "../styles/confirmation.css";
 
 const ViewConfirmation = () => {
     const {shoppingCart, setShoppingCart} = useContext(ShoppingCartContext); 
+    const {order, setOrder} = useContext(OrderContext);
 
     return(
         <div id='confirmation' className='cover-container overflow-auto d-flex h-100 mx-auto flex-column'>
         <Header/>
         <h1>Order Confirmation</h1>
-        <p>{"Your confirmation number is: " + Math.floor(Math.random() * 1000)} </p>
+        <p>{"Your confirmation number is: " + order} </p>
         {
             shoppingCart.cart.filter(shoe => {
                 return shoe.qty > 0
