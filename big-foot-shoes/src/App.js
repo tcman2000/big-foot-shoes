@@ -10,7 +10,7 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import { ShoppingCartContext } from './components/shoppingCartContext';
 import { OrderContext } from './components/orderContext';
 import { WarningContext } from './components/warningContext';
-import { shoes, getInventory, convertToArray } from './components/shoes';
+import { getInventory, convertToArray } from './components/shoes';
 import Home from './components/home';
 import About from './components/about';
 import Contact from './components/contact';

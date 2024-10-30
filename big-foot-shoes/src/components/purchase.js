@@ -10,7 +10,7 @@ import "../styles/purchase.css";
 import {useEffect} from 'react'
 import { ShoppingCartContext } from './shoppingCartContext';
 import { WarningContext } from './warningContext';
-import { shoes, renderImage, getInventory, convertToArray } from './shoes';
+import {getInventory, convertToArray } from './shoes';
 import Header from './partials/header';
 import Footer from './partials/footer';
 
@@ -36,9 +36,9 @@ const Purchase = () => {
                 {
                     shoppingCart.cart.map((shoe, idx) =>{
                         return(
-                            <div key={shoe.ident}>
-                            <label>{`${shoe.name} $${shoe.price}`}</label><br/>
-                            <img className='item-photo' src={renderImage(shoe.name.toLowerCase())} alt={shoe.name}/><br/>
+                            <div key={shoe.ID}>
+                            <label>{`${shoe.NAME} $${shoe.UNIT_PRICE}`}</label><br/>
+                            <img className='item-photo' src={shoe.IMAGE_URL} alt={shoe.NAME}/><br/>
                             <input
                                 type='number'
                                 min= {0}
@@ -49,10 +49,10 @@ const Purchase = () => {
                                     shoe.qty = Number(e.target.value);
                                     e.target.value = shoe.qty
                                     console.log(`Qty changed to ${shoe.qty}`)
-                                    if(shoe.qty > shoe.count){
-                                        shoe.qty = shoe.count;
-                                        e.target.value = shoe.count
-                                        setWarning(<>{`Shoe "${shoe.name}" has exceeded available quantity.`}<br/>{`Your cart has been updated.`}</>);
+                                    if(shoe.qty > shoe.AVAILABLE_QUANTITY){
+                                        shoe.qty = shoe.AVAILABLE_QUANTITY;
+                                        e.target.value = shoe.AVAILABLE_QUANTITY
+                                        setWarning(<>{`Shoe "${shoe.NAME}" has exceeded available quantity.`}<br/>{`Your cart has been updated.`}</>);
                                     }else{
                                         
                                         setWarning("")

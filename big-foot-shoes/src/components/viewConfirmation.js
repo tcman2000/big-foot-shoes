@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useContext } from 'react';
 import { ShoppingCartContext } from './shoppingCartContext';
 import { OrderContext } from './orderContext';
-import { renderImage } from './shoes';
 import {getTotal} from './viewOrder';
 import Header from './partials/header';
 import Footer from './partials/footer';
@@ -22,9 +21,9 @@ const ViewConfirmation = () => {
                 return shoe.qty > 0
             }).map(shoe => {
                 return(
-                <div key={shoe.id}>
-                <img className='item-photo' src={renderImage(shoe.name.toLowerCase())} alt={shoe.name}/><br/>
-                <label>{`${shoe.name} $${shoe.price} x${shoe.qty}`}</label><br/>
+                <div key={shoe.ID}>
+                <img className='item-photo' src={shoe.IMAGE_URL} alt={shoe.name}/><br/>
+                <label>{`${shoe.NAME} $${shoe.UNIT_PRICE} x${shoe.qty}`}</label><br/>
                 <br/><br/>
                 </div>
                 )

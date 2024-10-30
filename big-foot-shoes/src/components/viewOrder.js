@@ -5,13 +5,12 @@ import "../styles/purchase.css";
 import { ShoppingCartContext } from './shoppingCartContext';
 import { WarningContext } from './warningContext';
 import { OrderContext } from './orderContext';
-import { renderImage } from './shoes';
 import Header from './partials/header';
 import Footer from './partials/footer';
 
 function getTotal(cart){
     return cart.reduce((acc, val)=>{
-        return acc + (val.qty * val.price)
+        return acc + (val.qty * val.UNIT_PRICE)
     }, 0);
 }
 const ViewOrder = () => {
@@ -71,9 +70,9 @@ const ViewOrder = () => {
                         return shoe.qty > 0
                     }).map(shoe => {
                         return(
-                            <div key={shoe.ident}>
-                            <label>{`${shoe.name} $${shoe.price}`}</label><br/>
-                            <img className='item-photo' src={renderImage(shoe.name.toLowerCase())} alt={shoe.name}/><br/>
+                            <div key={shoe.ID}>
+                            <label>{`${shoe.NAME} $${shoe.UNIT_PRICE}`}</label><br/>
+                            <img className='item-photo' src={shoe.IMAGE_URL} alt={shoe.NAME}/><br/>
                             <input
                                 type='number'
                                 required
