@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createContext, useContext, useState, useEffect } from 'react';
 import { ShoppingCartContext } from './shoppingCartContext';
-import { shoes, renderImage, getInventory, convertToArray } from './shoes';
+import { getInventory, convertToArray } from './shoes';
 import "../styles/product.css";
 import Header from './partials/header';
 import Footer from './partials/footer';
@@ -21,14 +21,15 @@ const Product = (props) => {
         <hr/>
                 {
                     shoppingCart.cart.map((shoe, idx) =>{
+                        console.log(shoe);
                         return(
-                            <div key={shoe.ident}>
+                            <div key={shoe.ID}>
                                 <div className='item'>
-                                    <img className='product-image border rounded' src={renderImage(shoe.name.toLowerCase())} alt={shoe.name}/><br/>
+                                    <img className='product-image border rounded' src={shoe.IMAGE_URL} alt={shoe.NAME}/><br/>
                                     <div className = 'product-description'>
-                                        <h2>{`${shoe.name}`}</h2><br/>
-                                        <h3>{`$${shoe.price}`}</h3><br/>
-                                        {/* <p>{shoe.description}</p> */}
+                                        <h2>{`${shoe.NAME}`}</h2><br/>
+                                        <h3>{`$${shoe.UNIT_PRICE}`}</h3><br/>
+                                        <p>{shoe.DESCRIPTION}</p>
                                         <form onSubmit={handleSubmit}> 
                                             <br></br>
                                             <button className='button' class="btn btn-primary">Buy Now!</button>
