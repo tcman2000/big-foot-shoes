@@ -18,29 +18,35 @@ const Product = (props) => {
         <div id='product'>
             <Header/>
         <h1>Big Foot's Shoe Emporium Products</h1>
-        <hr/>
+        <br/>
+        <hr className='line'></hr>
                 {
                     shoppingCart.cart.map((shoe, idx) =>{
                         console.log(shoe);
                         return(
                             <div key={shoe.ID}>
-                                <div className='item'>
-                                    <img className='product-image border rounded' src={shoe.IMAGE_URL} alt={shoe.NAME}/><br/>
-                                    <div className = 'product-description'>
-                                        <h2>{`${shoe.NAME}`}</h2><br/>
-                                        <h3>{`$${shoe.UNIT_PRICE}`}</h3><br/>
-                                        <p>{shoe.DESCRIPTION}</p>
-                                        <form onSubmit={handleSubmit}> 
-                                            <br></br>
-                                            <button className='button' class="btn btn-primary">Buy Now!</button>
-                                        </form>
-                                    </div>
-                                </div>
-                                <hr></hr>
+                                <span className='item'>
+                                    <span className='column left'>
+                                        <img className='product-image' src={shoe.IMAGE_URL} alt={shoe.NAME}/><br/>
+                                    </span>
+                                    <span className='column right'>
+                                        <div className = 'product-description'>
+                                            <h2>{`${shoe.NAME}`}</h2><br/>
+                                            <h3>{`$${shoe.UNIT_PRICE}`}</h3><br/>
+                                            <p>{shoe.DESCRIPTION}</p>
+                                            <form onSubmit={handleSubmit}> 
+                                                <br></br>
+                                                <button className='button' class="btn btn-primary">Buy Now!</button>
+                                            </form>
+                                        </div>
+                                    </span>
+                                </span>
+                                <hr className = 'line'></hr>
                             </div>
                         )
                     })
                 }
+            <br/>
             <form onSubmit={handleSubmit}> 
                 <button className="btn btn-primary btn-lg">Start Shopping!</button>
             </form>
