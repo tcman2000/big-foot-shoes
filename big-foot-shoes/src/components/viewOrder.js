@@ -27,6 +27,7 @@ const ViewOrder = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(JSON.stringify(shoppingCart))
         const req = await fetch('https://m252cwc0oj.execute-api.us-east-2.amazonaws.com/dev/order-processing/order',
             {
                 method: 'POST',
@@ -41,14 +42,16 @@ const ViewOrder = () => {
         if(resp.statusCode === 200){
             setOrder(resp.orderNumber);
             navigate('/purchase/viewConfirmation');
-        } else{
+        } else if(resp.errors !== undefined ){
+            console.log(resp.errors);
             shoppingCart.cart = resp.cart;
             setWarning(
             <>
             {
-            resp.errors.reduce((acc, val) => {
-                    return [ acc, <br />, val ];
-                })
+                resp.errors.reduce((acc, val) => {
+                        
+                        return [ acc, <br />, val ];
+                    })
             }
             </>)
             navigate('/purchase')
